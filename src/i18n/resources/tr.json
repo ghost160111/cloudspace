@@ -1,0 +1,23 @@
+{
+    "periods": {
+        "wholePeriod": "Tüm dönem",
+        "perYear": "Yılda",
+        "perQuartile": "Çeyrek başına",
+        "perMonth": "Aylık",
+        "perWeek": "Haftalık",
+        "yesterday": "Dün",
+        "today": "Bugün"
+    },
+    "datePicker": {
+        "title": "Dönem seçin"
+    },
+    "logged": {
+        "lang": "Seçilen dil",
+        "apply": "Uygula"
+    },
+    "testTexts": {
+        "short": "OK",
+        "medium": "Bu orta uzunlukta bir test metnidir.",
+        "long": "Bu, birçok kelime olduğunda arayüzün nasıl davrandığını kontrol etmek için hazırlanmış uzun bir test metnidir. Birden fazla cümle içerir ve gerçek bir paragrafı simüle etmek için yeterli içerik sağlar."
+    }
+}

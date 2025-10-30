@@ -1,0 +1,22 @@
+@use "assets/styles/helpers/functions";
+
+.scrollbar {
+    &::-webkit-scrollbar {
+        width: functions.rem(6);
+        height: functions.rem(6);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: functions.rem(12);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: functions.rem(10);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}

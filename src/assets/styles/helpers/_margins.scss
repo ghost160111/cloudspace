@@ -1,0 +1,23 @@
+@use "assets/styles/helpers/functions";
+@use "sass:map";
+
+$margins-map: (
+    "margin-bottom": "mb",
+    "margin-left": "ml",
+    "margin-top": "mt",
+    "margin-right": "mr",
+);
+
+$max: 250;
+
+@for $i from 1 through $max {
+    $value: functions.rem($i);
+
+    @each $prop, $class in $margins-map {
+        $finalClass: "." + $class + "-" + $i;
+
+        #{$finalClass} {
+            #{$prop}: $value !important;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@use "assets/styles/helpers/functions";
+@use "sass:map";
+
+$paddings-map: (
+    "padding-bottom": "pb",
+    "padding-left": "pl",
+    "padding-top": "pt",
+    "padding-right": "pr",
+);
+
+$max: 250;
+
+@for $i from 1 through $max {
+    $value: functions.rem($i);
+
+    @each $prop, $class in $paddings-map {
+        $finalClass: "." + $class + "-" + $i;
+
+        #{$finalClass} {
+            #{$prop}: $value !important;
+        }
+    }
+}

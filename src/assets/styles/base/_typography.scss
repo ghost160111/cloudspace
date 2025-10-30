@@ -1,0 +1,15 @@
+@use "assets/styles/helpers/variables";
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap");
+
+html {
+    font-size: calc(
+        (100vw - var(--vw-min-px)) / (var(--vw-max) - var(--vw-min)) * (var(--f-max) - var(--f-min)) + var(--f-min-px)
+    ) !important;
+}
+
+body {
+    font-size: variables.$fz;
+    font-weight: variables.$fw;
+    font-family: var(--font-family);
+    line-height: variables.$lh;
+}

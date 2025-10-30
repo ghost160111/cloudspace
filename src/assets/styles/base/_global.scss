@@ -1,0 +1,64 @@
+@use "assets/styles/components/scrollbar";
+@use "assets/styles/helpers/functions";
+@use "assets/styles/helpers/variables";
+@use "sass:color";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100%;
+    font-feature-settings:
+        "pnum" on,
+        "lnum" on;
+    background: var(--c-white-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family);
+    line-height: 1.5;
+    font-weight: 600;
+    color: inherit;
+    margin: {
+        top: 0;
+        bottom: var(--mb-24);
+    }
+}
+
+b {
+    font-weight: 700;
+}
+
+.svg-wrap {
+    line-height: 0;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+textarea {
+    font-family: var(--font-family);
+}
+
+.inner-title {
+    font-weight: 600;
+    font-size: functions.rem(32);
+    line-height: 1.25;
+    color: #1e2538;
+}

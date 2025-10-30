@@ -1,0 +1,11 @@
+[
+    { "id": "en", "text": "English", "flag": "us" },
+    { "id": "ru", "text": "Russian", "flag": "ru" },
+    { "id": "oz", "text": "O'zbek", "flag": "uz" },
+    { "id": "fr", "text": "French", "flag": "fr" },
+    { "id": "de", "text": "German", "flag": "de" },
+    { "id": "tr", "text": "Türkçe", "flag": "tr" },
+    { "id": "ae", "text": "Arabic", "flag": "ae" },
+    { "id": "ua", "text": "Українська", "flag": "ua" },
+    { "id": "es", "text": "Español", "flag": "es" }
+]

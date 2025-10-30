@@ -1,0 +1,23 @@
+﻿{
+    "periods": {
+        "wholePeriod": "Butun davr",
+        "perYear": "Yiliga",
+        "perQuartile": "Chorakka",
+        "perMonth": "Oygacha",
+        "perWeek": "Haftasiga",
+        "yesterday": "Kecha",
+        "today": "Bugun"
+    },
+    "datePicker": {
+        "title": "Davrni tanlang"
+    },
+    "logged": {
+        "lang": "Tanlangan til",
+        "apply": "Qo'llash"
+    },
+    "testTexts": {
+        "short": "OK",
+        "medium": "Bu o‘rtacha uzunlikdagi sinov matni.",
+        "long": "Bu uzun sinov matni bo‘lib, ko‘p so‘zlar mavjud bo‘lganda interfeys qanday ishlashini tekshirish uchun yozilgan. Unda bir nechta gaplar mavjud bo‘lib, haqiqiy paragrafni simulyatsiya qilish uchun yetarli mazmun beradi."
+    }
+}

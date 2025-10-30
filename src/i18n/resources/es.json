@@ -1,0 +1,23 @@
+{
+    "periods": {
+        "wholePeriod": "Todo el período",
+        "perYear": "Por año",
+        "perQuartile": "Trimestral",
+        "perMonth": "Mensual",
+        "perWeek": "Semanal",
+        "yesterday": "Ayer",
+        "today": "Hoy"
+    },
+    "datePicker": {
+        "title": "Seleccione el período"
+    },
+    "logged": {
+        "lang": "Idioma seleccionado",
+        "apply": "Aplicar"
+    },
+    "testTexts": {
+        "short": "OK",
+        "medium": "Este es un texto de prueba de longitud media.",
+        "long": "Este es un texto de prueba largo, diseñado para comprobar cómo se comporta la interfaz cuando hay muchas palabras. Contiene varias oraciones y proporciona suficiente contenido para simular un párrafo real."
+    }
+}

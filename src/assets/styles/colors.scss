@@ -1,0 +1,26 @@
+@use "assets/styles/helpers/variables";
+
+:root {
+    --disabled: #ccd2de;
+    --outline-color: #bfc1cc;
+    --white: #fff;
+    --black: #000;
+    --c-blue: #007aff;
+    --c-orange: #fe7405;
+    --c-orange-opacity: #fe74051a;
+    --c-blue-text: #008dff;
+    --c-red: #ef3b3b;
+    --c-red-opacity: #fb1c101a;
+    --c-white-background: rgb(243, 243, 243);
+    --c-border-color: #d9dbe8;
+    --c-blue-gray: #475569;
+    --c-grey-text: #64748b;
+    --c-light-grey: #f1f5f9;
+    --c-green: #17bcad;
+    --c-green-linear: linear-gradient(90deg, #04a396, #03d1c0);
+    --c-green-opacity: #17bcad1a;
+    --c-green-hover: #148f85;
+    --c-green-active: #0e665e;
+    --c-yellow: #e6ce12;
+    --c-yellow-opacity: #fed9051a;
+}

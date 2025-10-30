@@ -1,0 +1,71 @@
+@use "assets/styles/helpers/mixins";
+@use "assets/styles/helpers/variables";
+@use "assets/styles/helpers/functions";
+
+:root {
+    --scroll-width: 0px;
+
+    /* Base font-size */
+    --base-fz: 16;
+
+    --f-min: 12;
+    --f-min-px: 12px;
+    --f-max: 16;
+
+    --vw-min: 1024;
+    --vw-min-px: 1024px;
+    --vw-max: 1920;
+
+    --btns-transition: 300ms;
+
+    --btn-height: #{functions.rem(48)};
+    --btn-width: #{functions.rem(120)};
+
+    --font-family: "Golos Text", sans-serif;
+
+    --animation: 0.3s ease;
+
+    @media #{variables.$md-and-down} {
+        --btn-height: 40px;
+        --btn-width: 130px;
+        --header-height: 60px;
+    }
+
+    @media (max-width: variables.$tablet-view) {
+        /* Base font-size */
+        --base-fz: 16;
+
+        --f-min: 12;
+        --f-min-px: 12px;
+        --f-max: 16;
+
+        --vw-min: 768;
+        --vw-min-px: 768px;
+        --vw-max: 1280;
+    }
+
+    @media (max-width: variables.$mobile-view), (max-height: 500px) {
+        /* Base font-size */
+        --base-fz: 14;
+
+        --f-min: 14;
+        --f-min-px: 14px;
+        --f-max: 14;
+
+        --vw-min: 360;
+        --vw-min-px: 360px;
+        --vw-max: 768;
+
+        --btn-width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

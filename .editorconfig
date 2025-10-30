@@ -1,0 +1,14 @@
+# Applies to JavaScript, TypeScript, Vue, SCSS, Sass, and CSS files
+[*.{js,jsx,ts,tsx,vue}]
+indent_style = space             ; Use spaces for indentation
+indent_size = 4                  ; Indentation size of 2 spaces
+trim_trailing_whitespace = true  ; Trim trailing whitespace
+insert_final_newline = true      ; Ensure a newline at the end of files
+print_width=120
+
+[*.{css,sass,scss,less}]
+indent_style = space             ; Use spaces for indentation
+indent_size = 4                  ; Indentation size of 2 spaces
+trim_trailing_whitespace = true  ; Trim trailing whitespace
+insert_final_newline = true      ; Ensure a newline at the end of files
+print_width=80

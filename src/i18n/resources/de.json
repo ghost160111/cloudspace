@@ -1,0 +1,23 @@
+{
+    "periods": {
+        "wholePeriod": "Gesamter Zeitraum",
+        "perYear": "Pro Jahr",
+        "perQuartile": "Pro Quartal",
+        "perMonth": "Pro Monat",
+        "perWeek": "Pro Woche",
+        "yesterday": "Gestern",
+        "today": "Heute"
+    },
+    "datePicker": {
+        "title": "Zeitraum auswählen"
+    },
+    "logged": {
+        "lang": "Ausgewählte Sprache",
+        "apply": "Anwenden"
+    },
+    "testTexts": {
+        "short": "OK",
+        "medium": "Dies ist ein mittellanger Testtext.",
+        "long": "Dies ist ein langer Testtext, der dazu dient, zu überprüfen, wie sich das Layout verhält, wenn viele Wörter vorhanden sind. Er enthält mehrere Sätze und bietet genügend Inhalt, um einen echten Absatz zu simulieren."
+    }
+}

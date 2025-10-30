@@ -1,0 +1,42 @@
+.close-button {
+    display: block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 300ms;
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--fixed {
+        position: fixed;
+    }
+
+    &--left {
+        left: 0;
+    }
+
+    &--right {
+        right: 0;
+    }
+
+    &--top {
+        top: 0;
+    }
+
+    &--bottom {
+        bottom: 0;
+    }
+
+    &:hover {
+        transform: rotate(180deg);
+    }
+}
+
+.close-button__svg {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    pointer-events: none;
+}

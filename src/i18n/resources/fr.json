@@ -1,0 +1,23 @@
+{
+    "periods": {
+        "wholePeriod": "Toute la période",
+        "perYear": "Par an",
+        "perQuartile": "Par trimestre",
+        "perMonth": "Par mois",
+        "perWeek": "Par semaine",
+        "yesterday": "Hier",
+        "today": "Aujourd'hui"
+    },
+    "datePicker": {
+        "title": "Sélectionner la période"
+    },
+    "logged": {
+        "lang": "Langue sélectionnée",
+        "apply": "Appliquer"
+    },
+    "testTexts": {
+        "short": "OK",
+        "medium": "Ceci est un texte de longueur moyenne pour les tests.",
+        "long": "Ceci est un long texte de test destiné à vérifier le comportement de l'interface lorsqu'il y a beaucoup de mots. Il contient plusieurs phrases, offrant suffisamment de contenu pour simuler un vrai paragraphe."
+    }
+}

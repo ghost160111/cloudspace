@@ -1,0 +1,41 @@
+@use "assets/styles/helpers/functions";
+
+.sidebar {
+    position: relative;
+    display: block;
+    width: 0;
+    max-width: functions.rem(400);
+    transition:
+        width 0.3s ease,
+        flex-shrink 0.3s ease;
+
+    &--active {
+        width: functions.rem(400);
+    }
+
+    &--right {
+        .toggle-button {
+            left: functions.rem(-48);
+        }
+    }
+
+    &--left {
+        .toggle-button {
+            right: functions.rem(-48);
+        }
+    }
+}
+
+.content-wrap {
+    position: relative;
+    display: block;
+    overflow-x: hidden;
+    height: 100dvh;
+    overflow: auto;
+}
+
+.toggle-button {
+    position: absolute;
+    top: functions.rem(16);
+    z-index: 1;
+}
