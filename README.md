@@ -13,10 +13,9 @@ Create .env file, and paste the following for development
 ```.env
 VITE_MODE=development
 VITE_REACT_DEV_TOOLS=true
-VITE_I18N_DEBUG=true
 VITE_DEFAULT_LANG=en
 VITE_API_URL=http://10.10.199.54:8000
-VITE_EXP_DUR_TOKEN=1  # Value in days, if not provided -> default is 1
+VITE_AUTH_TOKEN_VALID_DAYS=1  # Value in days, if not provided -> default is 1
 ```
 
 Run dev script
@@ -32,10 +31,9 @@ Create .env file, and paste the following for production build
 ```.env
 VITE_MODE=production
 VITE_REACT_DEV_TOOLS=false
-VITE_I18N_DEBUG=false
 VITE_DEFAULT_LANG=en
 VITE_API_URL=http://10.10.199.54:8000
-VITE_EXP_DUR_TOKEN=1
+VITE_AUTH_TOKEN_VALID_DAYS=1
 ```
 
 Run build script

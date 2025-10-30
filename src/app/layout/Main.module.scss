@@ -1,7 +1,10 @@
 .main {
+    display: flex;
     flex: 1;
 
     & > section {
         position: relative;
+        display: flex;
+        flex: 1;
     }
 }
