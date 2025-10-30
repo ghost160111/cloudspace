@@ -19,7 +19,7 @@ class Layout extends PureComponent {
         return (
             <BrowserRouter>
                 {createPortal(<LoadingLine />, document.body)}
-                <Sidebar store={leftSidebarStore} position="left">
+                <Sidebar store={leftSidebarStore} position="left" hideToggleBtn>
                     Left side bar
                 </Sidebar>
                 <div className={styles["app-wrap"]}>
@@ -27,7 +27,7 @@ class Layout extends PureComponent {
                     <Main />
                     <Footer />
                 </div>
-                <Sidebar store={rightSidebarStore} position="right">
+                <Sidebar store={rightSidebarStore} position="right" hideToggleBtn>
                     Right side bar
                 </Sidebar>
             </BrowserRouter>

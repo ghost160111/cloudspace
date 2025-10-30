@@ -7,6 +7,7 @@ import SidebarStore from "stores/Sidebar";
 interface Props extends PropsWithChildren {
     store: SidebarStore;
     position: "left" | "right";
+    hideToggleBtn?: boolean;
 }
 
 @mobx
@@ -22,13 +23,15 @@ class Sidebar extends Component<Props> {
     render(): ReactNode {
         return (
             <aside className={this.sidebarClass}>
-                <button
-                    type="button"
-                    className={styles["toggle-button"]}
-                    onClick={() => this.props.store.toggleSidebar()}
-                >
-                    Toggle
-                </button>
+                {!this.props.hideToggleBtn && (
+                    <button
+                        type="button"
+                        className={styles["toggle-button"]}
+                        onClick={() => this.props.store.toggleSidebar()}
+                    >
+                        Toggle
+                    </button>
+                )}
                 <div className={styles["content-wrap"]}>{this.props.children}</div>
             </aside>
         );

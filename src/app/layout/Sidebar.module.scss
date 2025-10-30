@@ -14,12 +14,16 @@
     }
 
     &--right {
+        border-left: 1px solid #ccc;
+
         .toggle-button {
             left: functions.rem(-48);
         }
     }
 
     &--left {
+        border-right: 1px solid #ccc;
+
         .toggle-button {
             right: functions.rem(-48);
         }
