@@ -7,7 +7,7 @@ import MobxStore from "./Abstracts";
 import RootStore from "./RootStore";
 import FetchStore from "./Fetch";
 
-const TOKEN_COOKIE_NAME = "token";
+export const TOKEN_COOKIE_NAME = "token";
 
 class AuthStore extends MobxStore implements IInitializable {
     fetcher: FetchStore<{ access: string } | { error: string }>;
@@ -85,11 +85,14 @@ class AuthStore extends MobxStore implements IInitializable {
             body: JSON.stringify({ username: this.username, password: this.password }),
             onSuccess: (data) => {
                 if (data && "access" in data) {
-                    Log.API("Login successful", data);
-                    Cookies.setCookie(TOKEN_COOKIE_NAME, data.access, 1);
+                    Cookies.setCookie(TOKEN_COOKIE_NAME, data.access, 1, 0, 0, 0);
                     this.setAuthState(true);
                     this.resetForm();
                 }
+            },
+            onError: async (_, response) => {
+                const { error } = await response.json();
+                this.fetcher.errorMessage = error;
             },
         });
     }

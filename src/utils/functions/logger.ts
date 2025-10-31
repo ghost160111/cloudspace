@@ -18,10 +18,12 @@ function timestamp(): string {
 }
 
 function log(category: LogCategory, ...args: any[]) {
+    if (import.meta.env.PROD) return;
     console.debug(`%c[${timestamp()}] %c[${category}]`, "color:gray;", categoryStyles[category], ...args);
 }
 
 function logError(category: LogCategory, ...args: any[]) {
+    if (import.meta.env.PROD) return;
     console.error(`%c[${timestamp()}] %c[${category} ERROR]`, "color:gray;", errorStyle, ...args);
 }
 

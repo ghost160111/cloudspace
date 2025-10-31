@@ -1,11 +1,11 @@
 import { action, flow, makeObservable, observable, reaction } from "mobx";
+import { IInitializable } from "types/mobx";
 import { loadTranslation } from "i18n/i18nLoader";
 import { bound } from "decorators/bound";
+import { Log } from "utils/functions/logger";
 import RootStore from "./RootStore";
 import loadings from "i18n/loadings.json";
 import MobxStore from "./Abstracts";
-import { Log } from "utils/functions/logger";
-import { IInitializable } from "types/mobx";
 
 const env = import.meta.env;
 const DEFAULT_LANG: string = env.VITE_DEFAULT_LANG;

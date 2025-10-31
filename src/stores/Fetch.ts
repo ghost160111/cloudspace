@@ -9,7 +9,7 @@ interface FetchStoreInit<T> extends RequestInit {
     errorMessage?: string;
     onLoading?: () => void;
     onSuccess?: (data?: T) => void;
-    onError?: (err: Error) => void;
+    onError?: (err: Error, response: Response) => void;
 }
 
 interface FetchStoreConfig {
@@ -152,12 +152,14 @@ class FetchStore<T> {
         });
 
         const requestUrl: string = request.url.toString();
+        let responseRef: Response | null = null;
 
         try {
             this.setLoading();
             init?.onLoading?.();
 
             const response: Response = yield fetchData(request);
+            responseRef = response;
 
             if (!response.ok) {
                 throw new Error(init?.errorMessage ?? "Something went wrong, try again later!");
@@ -183,7 +185,7 @@ class FetchStore<T> {
                 this.setIdle();
             }
 
-            init?.onError?.(err);
+            init?.onError?.(err, responseRef!);
         } finally {
             this.controller = null;
         }

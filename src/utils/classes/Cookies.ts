@@ -46,7 +46,7 @@ export class Cookies {
         const date: Date = new Date();
         date.setTime(date.getTime() + days * (hours ?? 24) * (minutes ?? 60) * (seconds ?? 60) * 1000);
         const expires: string = "expires=" + date.toUTCString();
-        proxiedDocument.cookie = `${name}=${value};${expires};path=/;SameSite=Strict;`; // doesn't keep the cookie when protocol is Http.
+        proxiedDocument.cookie = `${name}=${value};${expires};path=/;SameSite=Strict;`; // doesn't store or keep the cookie when protocol is Http.
         this.#onSetListeners.forEach((listener) => listener(name, value));
         return this;
     }
@@ -68,6 +68,24 @@ export class Cookies {
         }
 
         return foundValue;
+    }
+
+    static hasCookie(name: string): boolean {
+        const splittedCookieList: string[] = proxiedDocument.cookie.split("; ");
+        let foundValue: string = "";
+
+        for (let i: number = 0; i < splittedCookieList.length; ++i) {
+            const cookie: string = splittedCookieList[i];
+            const splittedCookie: string[] = cookie.split("=");
+            const cookieName: string = splittedCookie[0];
+
+            if (cookieName === name) {
+                foundValue = splittedCookie[1];
+                break;
+            }
+        }
+
+        return foundValue !== "";
     }
 
     static deleteCookie(name: string): typeof Cookies {

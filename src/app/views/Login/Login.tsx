@@ -46,6 +46,7 @@ class Login extends Component {
                                 placeholder="Enter username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
+                                autoComplete="username"
                             />
                         </div>
                         <div style={{ display: "flex", flexFlow: "column" }}>
@@ -57,7 +58,7 @@ class Login extends Component {
                                 placeholder="Enter password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                autoComplete=""
+                                autoComplete="current-password"
                             />
                         </div>
                         <button type="submit" disabled={isDisabled}>

@@ -1,3 +1,4 @@
+import "stores/index";
 import { ReactApp } from "utils/classes/ReactApp";
 import { HistoryAPIPlugin, HistoryModulePlugin } from "utils/classes/ReactPlugin";
 import App from "app/App";
