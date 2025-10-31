@@ -9,8 +9,10 @@ import FetchStore from "./Fetch";
 
 export const TOKEN_COOKIE_NAME = "token";
 
+type AuthApiResponse = { access: string } | { error: string };
+
 class AuthStore extends MobxStore implements IInitializable {
-    fetcher: FetchStore<{ access: string } | { error: string }>;
+    fetcher: FetchStore<AuthApiResponse>;
 
     @observable username: string = "";
     @observable password: string = "";
@@ -24,6 +26,13 @@ class AuthStore extends MobxStore implements IInitializable {
         makeObservable(this);
     }
 
+    @bound
+    init(): void {
+        if (this.isAuthenticated) {
+            this.setAuthState(true);
+        }
+    }
+
     @computed
     get isAuthenticated(): boolean {
         const hasCookie: boolean = !!Cookies.getCookie(TOKEN_COOKIE_NAME);
@@ -34,12 +43,6 @@ class AuthStore extends MobxStore implements IInitializable {
     get isDisabled(): boolean {
         const { loading } = this.fetcher;
         return loading || !this.username || !this.password;
-    }
-
-    init(): void {
-        if (this.isAuthenticated) {
-            this.setAuthState(true);
-        }
     }
 
     @action.bound
