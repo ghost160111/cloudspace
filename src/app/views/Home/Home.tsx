@@ -1,9 +1,11 @@
-import { title } from "decorators/title";
 import { Component, ReactNode } from "react";
+import { mobx } from "decorators/mobx";
+import { title } from "decorators/title";
 
 @title(() => ({
     title: "Servers",
 }))
+@mobx
 class Home extends Component {
     render(): ReactNode {
         return (
