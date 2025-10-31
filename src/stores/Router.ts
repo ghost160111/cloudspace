@@ -38,7 +38,7 @@ class RouterStore extends MobxStore implements IInitializable {
     @computed
     get withoutLangPathname(): string {
         const [, ...rest] = this.pathname.split("/").filter(Boolean);
-        return rest.join("/");
+        return "/" + rest.join("/");
     }
 
     @computed

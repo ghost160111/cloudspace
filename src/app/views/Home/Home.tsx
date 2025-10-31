@@ -1,10 +1,15 @@
-import { PureComponent, ReactNode } from "react";
+import { title } from "decorators/title";
+import { Component, ReactNode } from "react";
 
-class Home extends PureComponent {
+@title(() => ({
+    title: "Servers",
+}))
+class Home extends Component {
     render(): ReactNode {
         return (
             <div style={{ height: "100dvh" }}>
-                <h1>Cloudspace</h1>
+                <h1>Servers</h1>
+                <button onClick={() => this.store.authStore.logout()}>Logout</button>
             </div>
         );
     }

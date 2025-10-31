@@ -2,6 +2,7 @@ import { IReactionDisposer, reaction } from "mobx";
 import { Component } from "react";
 import { T_Keys } from "stores/RootStore";
 import { setComponentName } from "utils/functions/setComponentName";
+import { mobx } from "./mobx";
 
 /** Uses `@mobx` decorator underhood for reactivity purposes, don't use `@mobx` decorator with this decorator, it will through errors! */
 export function title<T extends { new (...args: any[]): Component }>(
@@ -13,6 +14,7 @@ export function title<T extends { new (...args: any[]): Component }>(
     },
 ) {
     return function (Target: T) {
+        @mobx
         class Title extends Target {
             disposeReaction: IReactionDisposer;
 

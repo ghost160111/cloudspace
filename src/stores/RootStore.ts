@@ -10,10 +10,12 @@ import WindowStore from "./Window";
 import FancyboxStore from "./Fancybox";
 import ApiStore from "./Api";
 import ModalWindowStore from "./ModalWindow";
+import AuthStore from "./Auth";
 
 export type T_Keys = DeepKeys<typeof ru>;
 
 const stores = [
+    AuthStore,
     ApiStore,
     ThemeStore,
     RouterStore,
@@ -26,6 +28,7 @@ const stores = [
 ];
 
 class RootStore {
+    authStore: AuthStore;
     apiStore: ApiStore;
     themeStore: ThemeStore;
     routerStore: RouterStore;

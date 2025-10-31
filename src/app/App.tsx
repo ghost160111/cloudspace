@@ -6,10 +6,17 @@ import "app/App.scss";
 
 import { PureComponent, ReactNode } from "react";
 import Layout from "app/layout/Layout";
+import { createPortal } from "react-dom";
+import LoadingLine from "components/Loaders/LoadingLine";
 
 class App extends PureComponent {
     render(): ReactNode {
-        return <Layout />;
+        return (
+            <>
+                {createPortal(<LoadingLine />, document.body)}
+                <Layout />
+            </>
+        );
     }
 }
 

@@ -1,6 +1,5 @@
 import { PureComponent, ReactNode } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { createPortal } from "react-dom";
 
 import styles from "./Layout.module.scss";
 import store from "stores/index";
@@ -9,7 +8,8 @@ import Main from "./Main";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import SidebarStore from "stores/Sidebar";
-import LoadingLine from "components/Loaders/LoadingLine";
+import AuthMiddleware from "./AuthMiddleware";
+import Auth from "./Auth";
 
 const leftSidebarStore = new SidebarStore(store, true);
 const rightSidebarStore = new SidebarStore(store, true);
@@ -18,18 +18,26 @@ class Layout extends PureComponent {
     render(): ReactNode {
         return (
             <BrowserRouter>
-                {createPortal(<LoadingLine />, document.body)}
-                <Sidebar store={leftSidebarStore} position="left" hideToggleBtn>
-                    Left side bar
-                </Sidebar>
+                <AuthMiddleware />
+                <Auth>
+                    <Sidebar store={leftSidebarStore} position="left" hideToggleBtn>
+                        Left side bar
+                    </Sidebar>
+                </Auth>
                 <div className={styles["app-wrap"]}>
-                    <Header />
+                    <Auth>
+                        <Header />
+                    </Auth>
                     <Main />
-                    <Footer />
+                    <Auth>
+                        <Footer />
+                    </Auth>
                 </div>
-                <Sidebar store={rightSidebarStore} position="right" hideToggleBtn>
-                    Right side bar
-                </Sidebar>
+                <Auth>
+                    <Sidebar store={rightSidebarStore} position="right" hideToggleBtn>
+                        Right side bar
+                    </Sidebar>
+                </Auth>
             </BrowserRouter>
         );
     }
