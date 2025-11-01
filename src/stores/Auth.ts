@@ -7,10 +7,12 @@ import MobxStore from "./Abstracts";
 import RootStore from "./RootStore";
 import FetchStore from "./Fetch";
 
-export const TOKEN_COOKIE_NAME = "token";
+export const TOKEN_COOKIE_NAME = "access_token";
+
+type LoginResponse = { access: string } | { error: string };
 
 class AuthStore extends MobxStore implements IInitializable {
-    fetcher: FetchStore<{ access: string } | { error: string }>;
+    fetcher: FetchStore<LoginResponse>;
 
     @observable username: string = "";
     @observable password: string = "";
@@ -18,9 +20,15 @@ class AuthStore extends MobxStore implements IInitializable {
 
     constructor(rootStore: RootStore) {
         super(rootStore);
+
         this.fetcher = new FetchStore(null, {
             delay: 300,
+            crossLoad: {
+                key: "AUTH_STATE_TRIGGER",
+                onCrossLoad: () => this.setAuthState(this.isAuthenticated),
+            },
         });
+
         makeObservable(this);
     }
 
@@ -67,6 +75,7 @@ class AuthStore extends MobxStore implements IInitializable {
     logout(): void {
         Cookies.deleteCookie(TOKEN_COOKIE_NAME);
         this.setAuthState(false);
+        this.fetcher.triggerCrossLoad();
     }
 
     @bound
@@ -85,14 +94,16 @@ class AuthStore extends MobxStore implements IInitializable {
             body: JSON.stringify({ username: this.username, password: this.password }),
             onSuccess: (data) => {
                 if (data && "access" in data) {
-                    Cookies.setCookie(TOKEN_COOKIE_NAME, data.access, 1, 0, 0, 0);
+                    Cookies.setCookie(TOKEN_COOKIE_NAME, data.access, 1);
                     this.setAuthState(true);
                     this.resetForm();
+                    this.fetcher.triggerCrossLoad();
                 }
             },
             onError: async (_, response) => {
                 const { error } = await response.json();
                 this.fetcher.errorMessage = error;
+                this.fetcher.triggerCrossLoad();
             },
         });
     }

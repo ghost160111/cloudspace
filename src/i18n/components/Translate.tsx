@@ -1,8 +1,9 @@
 import { mobx } from "decorators/mobx";
 import { Component, ReactNode } from "react";
+import { T_Keys } from "stores/RootStore";
 
 interface Props {
-    tKey: string;
+    tKey: T_Keys;
 }
 
 @mobx

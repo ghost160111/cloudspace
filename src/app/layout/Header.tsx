@@ -1,6 +1,6 @@
-import NavigationLink from "components/Link/NavigationLink";
 import { PureComponent, ReactNode } from "react";
 import styles from "./Header.module.scss";
+import NavLink from "components/Link/NavLink";
 
 class Header extends PureComponent {
     render(): ReactNode {
@@ -9,13 +9,19 @@ class Header extends PureComponent {
                 <nav>
                     <ul>
                         <li>
-                            <NavigationLink to="/">Home</NavigationLink>
+                            <NavLink to="/" className={styles.link} activeClassName={styles.active}>
+                                Home
+                            </NavLink>
                         </li>
                         <li>
-                            <NavigationLink to="/about">About</NavigationLink>
+                            <NavLink to="/about" className={styles.link} activeClassName={styles.active}>
+                                About
+                            </NavLink>
                         </li>
                         <li>
-                            <NavigationLink to="/contact">Contact</NavigationLink>
+                            <NavLink to="/contact" className={styles.link} activeClassName={styles.active}>
+                                Contact
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>

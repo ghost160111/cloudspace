@@ -58,10 +58,10 @@ class Alert extends PureComponent<Props, State> {
         });
     }
 
-    handleHoverStart = () => this.setState({ isBlurred: true });
-    handleHoverEnd = () => this.setState({ isBlurred: false });
+    handleHoverStart = (): void => this.setState({ isBlurred: true });
+    handleHoverEnd = (): void => this.setState({ isBlurred: false });
 
-    componentDidUpdate(prevProps: Props) {
+    componentDidUpdate(prevProps: Props): void {
         const { isOpen, animationDuration = 300 } = this.props;
 
         if (isOpen && !prevProps.isOpen) {
@@ -80,7 +80,7 @@ class Alert extends PureComponent<Props, State> {
         }
     }
 
-    componentWillUnmount() {
+    componentWillUnmount(): void {
         if (this.hideTimeout) clearTimeout(this.hideTimeout);
         if (this.animateTimeout) clearTimeout(this.animateTimeout);
     }

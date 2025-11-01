@@ -4,7 +4,7 @@ import { className } from "utils/functions/className";
 import styles from "./CloseButton.module.scss";
 import SVG_CloseIcon from "components/SVG/SVG_CloseIcon";
 
-interface CloseButtonProps extends PropsWithClassName {
+interface Props extends PropsWithClassName {
     position?: "absolute" | "fixed";
     alignX?: "left" | "right";
     alignY?: "top" | "bottom";
@@ -12,7 +12,7 @@ interface CloseButtonProps extends PropsWithClassName {
     onClick?: (evt: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-class CloseButton extends PureComponent<CloseButtonProps> {
+class CloseButton extends PureComponent<Props> {
     get closeButtonClassName(): string {
         const { position, alignX, alignY } = this.props;
         return className(styles["close-button"], {

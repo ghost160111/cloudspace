@@ -1,9 +1,10 @@
 import { Component } from "react";
-import { debounce, DebouncedFunc } from "lodash";
 import { action, flow, makeObservable, observable } from "mobx";
 import { bound } from "decorators/bound";
 import { Log } from "utils/functions/logger";
 import { fetchData } from "utils/functions/setupGlobalFetch";
+import { type DebouncedFunc } from "lodash";
+import debounce from "lodash/debounce";
 
 interface FetchStoreInit<T> extends RequestInit {
     errorMessage?: string;

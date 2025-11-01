@@ -1,10 +1,10 @@
 import { PureComponent, ReactNode } from "react";
 
-interface SVG_CloseIconProps {
+interface Props {
     className?: string;
 }
 
-class SVG_CloseIcon extends PureComponent<SVG_CloseIconProps> {
+class SVG_CloseIcon extends PureComponent<Props> {
     render(): ReactNode {
         return (
             <svg

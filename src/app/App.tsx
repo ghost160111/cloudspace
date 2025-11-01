@@ -5,15 +5,18 @@ import "assets/styles/index.scss";
 import "app/App.scss";
 
 import { PureComponent, ReactNode } from "react";
-import Layout from "app/layout/Layout";
 import { createPortal } from "react-dom";
+
+import Layout from "app/layout/Layout";
 import LoadingLine from "components/Loaders/LoadingLine";
+import InternetState from "components/Internet/InternetState";
 
 class App extends PureComponent {
     render(): ReactNode {
         return (
             <>
                 {createPortal(<LoadingLine />, document.body)}
+                {createPortal(<InternetState />, document.body)}
                 <Layout />
             </>
         );
