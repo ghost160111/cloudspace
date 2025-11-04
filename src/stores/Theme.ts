@@ -1,6 +1,6 @@
 import { action, makeObservable, observable, reaction } from "mobx";
 import { IInitializable } from "types/mobx";
-import { bound } from "decorators/Bound";
+import { bound } from "decorators/bound";
 import RootStore from "./RootStore";
 import MobxStore from "./Abstracts";
 

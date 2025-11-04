@@ -7,12 +7,18 @@ import MobxStore from "./Abstracts";
 import RootStore from "./RootStore";
 import FetchStore from "./Fetch";
 
-export const TOKEN_COOKIE_NAME = "token";
+export const TOKEN_COOKIE_NAME = "access_token";
+
+type LoginResponse = { access: string } | { error: string };
 
 type AuthApiResponse = { access: string } | { error: string };
 
 class AuthStore extends MobxStore implements IInitializable {
+<<<<<<< HEAD
     fetcher: FetchStore<AuthApiResponse>;
+=======
+    fetcher: FetchStore<LoginResponse>;
+>>>>>>> c6b62d227e750660c20c6d21e965ed447ed6dfbf
 
     @observable username: string = "";
     @observable password: string = "";
@@ -20,9 +26,15 @@ class AuthStore extends MobxStore implements IInitializable {
 
     constructor(rootStore: RootStore) {
         super(rootStore);
+
         this.fetcher = new FetchStore(null, {
             delay: 300,
+            crossLoad: {
+                key: "AUTH_STATE_TRIGGER",
+                onCrossLoad: () => this.setAuthState(this.isAuthenticated),
+            },
         });
+
         makeObservable(this);
     }
 
@@ -70,6 +82,7 @@ class AuthStore extends MobxStore implements IInitializable {
     logout(): void {
         Cookies.deleteCookie(TOKEN_COOKIE_NAME);
         this.setAuthState(false);
+        this.fetcher.triggerCrossLoad();
     }
 
     @bound
@@ -88,14 +101,16 @@ class AuthStore extends MobxStore implements IInitializable {
             body: JSON.stringify({ username: this.username, password: this.password }),
             onSuccess: (data) => {
                 if (data && "access" in data) {
-                    Cookies.setCookie(TOKEN_COOKIE_NAME, data.access, 1, 0, 0, 0);
+                    Cookies.setCookie(TOKEN_COOKIE_NAME, data.access, 1);
                     this.setAuthState(true);
                     this.resetForm();
+                    this.fetcher.triggerCrossLoad();
                 }
             },
             onError: async (_, response) => {
                 const { error } = await response.json();
                 this.fetcher.errorMessage = error;
+                this.fetcher.triggerCrossLoad();
             },
         });
     }

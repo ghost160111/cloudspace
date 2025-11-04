@@ -1,5 +1,6 @@
 import styles from "./SmoothResizable.module.scss";
-import { debounce } from "lodash";
+import debounce from "lodash/debounce";
+
 import { createRef, PropsWithChildren, PureComponent, ReactNode, RefObject } from "react";
 
 interface Props extends PropsWithChildren {

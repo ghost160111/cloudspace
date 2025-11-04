@@ -1,5 +1,5 @@
-import { mobx } from "decorators/mobx";
 import { Component, ReactNode } from "react";
+import { mobx } from "decorators/mobx";
 import Navigate from "components/Link/Navigate";
 
 @mobx

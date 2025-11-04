@@ -1,9 +1,11 @@
-import { title } from "decorators/title";
 import { Component, ReactNode } from "react";
+import { mobx } from "decorators/mobx";
+import { title } from "decorators/title";
 
 @title((self) => ({
     title: self.store.localeStore.t("pages.login"),
 }))
+@mobx
 class Login extends Component {
     render(): ReactNode {
         const { fetcher, username, password, setUsername, setPassword, isDisabled, login } = this.store.authStore;

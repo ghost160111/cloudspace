@@ -46,7 +46,7 @@ export class Cookies {
         const date: Date = new Date();
         date.setTime(date.getTime() + days * (hours ?? 24) * (minutes ?? 60) * (seconds ?? 60) * 1000);
         const expires: string = "expires=" + date.toUTCString();
-        proxiedDocument.cookie = `${name}=${value};${expires};path=/;SameSite=Strict;`; // doesn't store or keep the cookie when protocol is Http.
+        proxiedDocument.cookie = `${name}=${value};${expires};path=/;`; // doesn't store or keep the cookie when protocol is Http.
         this.#onSetListeners.forEach((listener) => listener(name, value));
         return this;
     }

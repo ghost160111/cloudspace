@@ -1,8 +1,10 @@
 import "rc-slider/assets/index.css";
 import "./RangeSliderDual.scss";
+
 import { createRef, PureComponent, ReactNode, RefObject } from "react";
-import { debounce } from "lodash";
 import { className } from "utils/functions/className";
+
+import debounce from "lodash/debounce";
 import Slider from "rc-slider";
 
 interface Props {

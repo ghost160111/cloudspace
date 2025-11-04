@@ -1,6 +1,7 @@
 import { action, computed, makeObservable, observable } from "mobx";
 import { bound } from "decorators/bound";
-import { debounce } from "lodash";
+import debounce from "lodash/debounce";
+
 import { IInitializable } from "types/mobx";
 import RootStore from "./RootStore";
 import MobxStore from "./Abstracts";

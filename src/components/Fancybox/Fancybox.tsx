@@ -1,4 +1,5 @@
-import { debounce } from "lodash";
+import debounce from "lodash/debounce";
+
 import { PropsWithChildren, Component, ReactNode, RefObject, createRef } from "react";
 import { type OptionsType as FancyboxOptions } from "@fancyapps/ui/types/Fancybox/options";
 import { IReactionDisposer, reaction } from "mobx";
@@ -9,7 +10,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "./Fancybox.scss";
 import LOCALES from "i18n/resources/fancybox/locales.json";
 
-interface FancyboxProps extends PropsWithChildren {
+interface Props extends PropsWithChildren {
     options?: Partial<FancyboxOptions>;
     delegate?: string;
     init?: () => void;
@@ -19,7 +20,7 @@ interface FancyboxProps extends PropsWithChildren {
 }
 
 @mobx
-class Fancybox extends Component<FancyboxProps> {
+class Fancybox extends Component<Props> {
     static NativeFancybox: typeof import("@fancyapps/ui").Fancybox;
     static loadedFancybox: boolean = false;
 
@@ -149,7 +150,7 @@ class Fancybox extends Component<FancyboxProps> {
         this.disposeLangReaction?.();
     }
 
-    componentDidUpdate(prevProps: Readonly<FancyboxProps>): void {
+    componentDidUpdate(prevProps: Readonly<Props>): void {
         if (prevProps.options !== this.props.options) {
             Fancybox.NativeFancybox.unbind(this.containerRef.current);
             Fancybox.NativeFancybox.close();
