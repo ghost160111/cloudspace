@@ -1,14 +1,15 @@
 import { action, makeObservable, observable, reaction } from "mobx";
 import { IInitializable } from "types/mobx";
 import { bound } from "decorators/bound";
+import { theme } from "config/project.json";
 import RootStore from "./RootStore";
 import MobxStore from "./Abstracts";
 
-export type Theme = "default" | "grey";
+export type Theme = "light" | "dark";
 
 class ThemeStore extends MobxStore implements IInitializable {
-    @observable theme: Theme = "default";
-    @observable themes: Theme[] = ["default", "grey"];
+    @observable theme: Theme = theme as Theme;
+    @observable themes: Theme[] = ["light", "dark"];
 
     constructor(rootStore: RootStore) {
         super(rootStore);
@@ -21,14 +22,6 @@ class ThemeStore extends MobxStore implements IInitializable {
             () => this.theme,
             (newTheme) => {
                 document.documentElement.setAttribute("data-theme", newTheme);
-
-                document.body.classList.forEach((className) => {
-                    if (className.includes("theme")) {
-                        document.body.classList.remove(className);
-                    }
-                });
-
-                document.body.classList.add(`theme-${newTheme}`);
             },
             { fireImmediately: true },
         );

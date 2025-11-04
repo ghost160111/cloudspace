@@ -42,7 +42,8 @@
             "stores/*": ["./src/stores/*"],
             "types/*": ["./src/types/*"],
             "utils/*": ["./src/utils/*"],
-            "workers/*": ["./src/workers/*"]
+            "workers/*": ["./src/workers/*"],
+            "config/*": ["./config/*"]
         },
 
         /* Types */

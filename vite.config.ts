@@ -11,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const env = loadEnv(process.env.VITE_MODE || "development", process.cwd(), "VITE_");
 const root = path.resolve(__dirname, "src");
+const configRoot = path.resolve(__dirname, "config");
 
 function regexChecker(regex: RegExp, fileName: string): boolean {
     return regex.test(fileName);
@@ -76,6 +77,7 @@ export default defineConfig({
             stores: path.resolve(root, "stores"),
             types: path.resolve(root, "types"),
             utils: path.resolve(root, "utils"),
+            config: path.resolve(configRoot, "config"),
         },
     },
     preview: {
