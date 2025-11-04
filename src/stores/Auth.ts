@@ -11,14 +11,8 @@ export const TOKEN_COOKIE_NAME = "access_token";
 
 type LoginResponse = { access: string } | { error: string };
 
-type AuthApiResponse = { access: string } | { error: string };
-
 class AuthStore extends MobxStore implements IInitializable {
-<<<<<<< HEAD
-    fetcher: FetchStore<AuthApiResponse>;
-=======
     fetcher: FetchStore<LoginResponse>;
->>>>>>> c6b62d227e750660c20c6d21e965ed447ed6dfbf
 
     @observable username: string = "";
     @observable password: string = "";
