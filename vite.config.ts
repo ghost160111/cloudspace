@@ -77,7 +77,7 @@ export default defineConfig({
             stores: path.resolve(root, "stores"),
             types: path.resolve(root, "types"),
             utils: path.resolve(root, "utils"),
-            config: path.resolve(configRoot, "config"),
+            config: configRoot,
         },
     },
     preview: {

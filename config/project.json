@@ -1,3 +1,4 @@
 {
-    "theme": "light"
+    "default_language": "en",
+    "default_theme": "light"
 }
